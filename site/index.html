@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gyro Pipeline örneği</title>
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;min-height:100vh;display:grid;place-items:center;background:#065174;color:#fff}
+main{max-width:36rem;padding:2rem;text-align:center}
+h1{font-size:1.8rem;margin:0 0 .5rem}
+code{background:rgba(255,255,255,.15);padding:.15rem .4rem;border-radius:.3rem}
+p{line-height:1.5;opacity:.9}
+</style>
+</head>
+<body>
+<main>
+<h1>Gyro Pipeline çalışıyor</h1>
+<p>Bu sayfa her <code>git push</code> sonrasında Gyro Pipeline tarafından Dockerfile ile derlendi ve Gyro Kapsayıcı (ECS) servisine kesintisiz dağıtıldı.</p>
+<p>Sürüm (commit): <code id="v">…</code></p>
+<p><small>This page was built from its Dockerfile by Gyro Pipeline after a <code>git push</code> and rolled out to a Gyro Containers (ECS) service without downtime.</small></p>
+</main>
+<script>fetch('version.txt').then(function(r){return r.text()}).then(function(t){document.getElementById('v').textContent=t.trim()||'?'})</script>
+</body>
+</html>

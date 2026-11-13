@@ -1,0 +1,14 @@
+# Gyro Pipeline ayarları (isteğe bağlı). Paneldeki ayarların üzerine yazar.
+# Gyro Pipeline settings (optional). Override the panel settings.
+image: ornek-web
+dockerfile: Dockerfile
+build:
+  image: alpine:3.22
+  commands:
+    - echo "$GYRO_COMMIT" | cut -c1-7 > site/version.txt
+    - test -s site/index.html
+  args:
+    APP_VERSION: "1.0"
+deploy:
+  services: [web]
+  rollback: true
