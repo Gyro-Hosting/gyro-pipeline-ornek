@@ -2,6 +2,8 @@
 # Gyro Pipeline settings (optional). Override the panel settings.
 image: ornek-web
 dockerfile: Dockerfile
+# build_target: production   # çok aşamalı Dockerfile'da derlenecek aşama (FROM ... AS production); yoksa son aşama
+#                             # stage of a multi-stage Dockerfile to build; empty = last stage
 build:
   image: alpine:3.22
   commands:
